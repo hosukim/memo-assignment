@@ -35,4 +35,9 @@ export const { addMemo, deleteMemo, updateMemo } = memoSlice.actions;
 
 export const useMemoList = () => useSelector((state: any) => state[MEMO_SLICE]);
 
+export const useGetMemoDetail = (id: string) =>
+  useSelector((state: any) =>
+    state[MEMO_SLICE].find((memo: MEMO_STATE) => memo.id === id)
+  );
+
 export default memoSlice.reducer;
