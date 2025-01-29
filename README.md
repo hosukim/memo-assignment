@@ -1,65 +1,55 @@
-# Starter Template with React Navigation
+이 프로젝트는 세탁특공대 프론트엔드 코딩 과제를 위해 진행되었습니다.
 
-This is a minimal starter template for React Native apps using Expo and React Navigation.
+## 실행방법
 
-It includes the following:
+1. 이 프로젝트를 클론한 후, 프로젝트 디렉토리로 이동합니다.
 
-- Example [Native Stack](https://reactnavigation.org/docs/native-stack-navigator) with a nested [Bottom Tab](https://reactnavigation.org/docs/bottom-tab-navigator)
-- Web support with [React Native for Web](https://necolas.github.io/react-native-web/)
-- TypeScript support and configured for React Navigation
-- Automatic deep link and URL handling configuration
-- Expo [Development Build](https://docs.expo.dev/develop/development-builds/introduction/) with [Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)
-- Edge-to-edge configured on Android with [`react-native-edge-to-edge`](https://www.npmjs.com/package/react-native-edge-to-edge)
+```bash
+git clone https://github.com/hosukim/washwat-memo.git
+cd washwat-memo
+```
 
-## Getting Started
+2. 필요한 패키지를 설치합니다.
 
-1. Create a new project using this template:
+```bash
+yarn install
+```
 
-   ```sh
-   npx create-expo-app@latest --template react-navigation/template
-   ```
+3. Expo 개발 서버를 시작한 뒤, Expo Go 앱을 실행하여 확인할 수 있습니다.
 
-2. Edit the `app.json` file to configure the `name`, `slug`, `scheme` and bundle identifiers (`ios.bundleIdentifier` and `android.bundleIdentifier`) for your app.
+```bash
+yarn start
+```
 
-3. Edit the `src/App.tsx` file to start working on your app.
+&nbsp;
 
-## Running the app
+## 실행 환경
 
-- Install the dependencies:
+- Node.js v20.10.0
+- Yarn v1.22.22
+- JDK 17
 
-  ```sh
-  npm install
-  ```
+&nbsp;
 
-- Start the development server:
+## 구현한 내용
 
-  ```sh
-  npm start
-  ```
+- 과제 요구사항에 정의된 3개의 페이지 및 필수 사용 기술
+- Redux를 사용한 상태 관리
+- React Navigation을 통한 화면 전환 구현
+- React Hook Form과 Yup을 사용한 폼 데이터 처리 및 유효성 검사
 
-- Build and run iOS and Android development builds:
+&nbsp;
 
-  ```sh
-  npm run ios
-  # or
-  npm run android
-  ```
+## 고민되었던 부분 및 개선하고 싶은 사항
 
-- In the terminal running the development server, press `i` to open the iOS simulator, `a` to open the Android device or emulator, or `w` to open the web browser.
+- **확장성**을 어디까지 고민하고 개발을 진행할지에 대한 고민이 가장 많았던 것 같습니다.
 
-## Notes
+  > 미니멀한 프로젝트인 만큼 과도한 추상화 없이 적절한 밸런스를 유지하려고 했습니다.
 
-This project uses a [development build](https://docs.expo.dev/develop/development-builds/introduction/) and cannot be run with [Expo Go](https://expo.dev/go). To run the app with Expo Go, edit the `package.json` file, remove the `expo-dev-client` package and `--dev-client` flag from the `start` script. However, Edge-to-edge won't work on Expo Go.
+- 내용 페이지와 수정 페이지를 한 개의 페이지로 구현할까, 두 개의 페이지로 구현할까 고민했었습니다.
 
-We highly recommend using the development builds for normal development and testing.
+  > 동일한 UI Layout 이지만, 설계상 서로 다른 페이지라고 적혀있었기에 단일 책임 원칙을 지키려 두 개의 페이지로 구현했습니다.
 
-The `ios` and `android` folder are gitignored in the project by default as they are automatically generated during the build process ([Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)). This means that you should not edit these folders directly and use [config plugins](https://docs.expo.dev/config-plugins/) instead. However, if you need to edit these folders, you can remove them from the `.gitignore` file so that they are tracked by git.
+- 상태 관리 라이브러리에 대한 고민이 있었습니다.
 
-## Resources
-
-- [React Navigation documentation](https://reactnavigation.org/)
-- [Expo documentation](https://docs.expo.dev/)
-
----
-
-Demo assets are from [lucide.dev](https://lucide.dev/)
+  > 미니멀한 프로젝트인 만큼 Recoil, Context API 를 함께 고민하였지만 **상태 관리의 일관성**과 **확장성**, 그리고 개인적인 경험에 따라서 Redux를 선택했습니다.
