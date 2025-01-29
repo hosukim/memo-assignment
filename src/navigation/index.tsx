@@ -7,10 +7,12 @@ import MemoListScreen from "@/screens/MemoList";
 import palette from "@/palette";
 import routes from "./routes";
 import MemoDetailScreen from "@/screens/MemoDetail";
+import MemoEditScreen from "@/screens/MemoEdit";
 
 export type RootStackParamList = {
   [routes.memoList]: undefined;
   [routes.memoDetail]: { id: string };
+  [routes.memoEdit]: { id: string };
 };
 
 export type RootStackNavigationProp =
@@ -23,6 +25,9 @@ const RootStack = createNativeStackNavigator({
     },
     [routes.memoDetail]: {
       screen: MemoDetailScreen,
+    },
+    [routes.memoEdit]: {
+      screen: MemoEditScreen,
     },
   },
   screenOptions: {

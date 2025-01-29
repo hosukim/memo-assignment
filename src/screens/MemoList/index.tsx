@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import MemoItem from "./components/MemoItem";
 import palette from "@/palette";
 import { DEFAULT_CONTAINER_PADDING, DEFAULT_CONTENT_PADDING } from "@/constant";
+import { formatDate } from "@/utils/dateTime";
 
 const MemoListScreen = () => {
   const [isAdding, setIsAdding] = useState(false);
@@ -27,13 +28,13 @@ const MemoListScreen = () => {
 
     setIsAdding(true);
 
-    const dateISOString = new Date().toISOString();
+    const dateStr = formatDate(new Date());
     const newMemo = {
-      id: dateISOString,
+      id: new Date().toISOString(),
       title: "제목없음",
       description: "내용없음",
-      createdAt: dateISOString.split("T")[0],
-      updatedAt: dateISOString.split("T")[0],
+      createdAt: dateStr,
+      updatedAt: dateStr,
     };
 
     dispatch(addMemo(newMemo));

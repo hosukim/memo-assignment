@@ -4,6 +4,8 @@ const palette = {
   gray: "#7C7C7C",
   lightGray: "#AEAEAE",
   text: "#333333",
+  devider: "#E0E0E0",
+  error: "#FF3333",
 
   primary: "#9DDBFF",
 

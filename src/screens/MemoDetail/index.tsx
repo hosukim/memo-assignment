@@ -45,12 +45,7 @@ const MemoDetailScreen = () => {
   };
 
   const navigateToEdit = () => {
-    navigation.navigate(routes.memoDetail, {
-      id,
-      // title,
-      // description,
-      // updatedAt,
-    });
+    navigation.navigate(routes.memoEdit, { id });
   };
 
   if (!memo) {
@@ -58,7 +53,10 @@ const MemoDetailScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.innerContainer}
+    >
       <View style={styles.header}>
         <Text style={styles.headerTitle} numberOfLines={1} ellipsizeMode="tail">
           {memo.title}
@@ -76,10 +74,10 @@ const MemoDetailScreen = () => {
 
       <Text style={styles.updatedAt}>{memo.updatedAt}</Text>
 
-      <ScrollView style={styles.descriptionWrapper}>
+      <View style={styles.descriptionWrapper}>
         <Text style={styles.description}>{memo.description}</Text>
-      </ScrollView>
-    </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -87,6 +85,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: DEFAULT_CONTAINER_PADDING,
+  },
+  innerContainer: {
+    paddingBottom: 60,
   },
   header: {
     flexDirection: "row",
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 28,
     fontWeight: "bold",
+    paddingVertical: 8,
   },
   buttonGroup: {
     flexDirection: "row",
@@ -111,7 +113,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   updatedAt: {
-    marginTop: 16,
+    marginTop: 8,
     fontSize: 12,
     color: palette.lightGray,
     textAlign: "right",
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     color: palette.text,
+    paddingVertical: 8,
   },
 });
 

@@ -50,11 +50,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingVertical: DEFAULT_CONTENT_PADDING,
     borderBottomWidth: 1,
-    borderBottomColor: "#e0e0e0",
+    borderBottomColor: palette.devider,
   },
   memoContent: {
     flex: 1,
-    marginRight: 56,
   },
   memoTitle: {
     fontSize: 18,
@@ -64,6 +63,7 @@ const styles = StyleSheet.create({
   memoTitleBlock: {
     flexDirection: "row",
     alignItems: "center",
+    marginRight: 56,
   },
   memoDate: {
     fontSize: 12,
