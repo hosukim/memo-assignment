@@ -7,14 +7,15 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch } from "react-redux";
 import Feather from "@expo/vector-icons/Feather";
 import routes from "@/navigation/routes";
+import { RootStackNavigationProp } from "@/navigation";
 
 const MemoItem = ({ item }: { item: MEMO_STATE }) => {
   const dispatch = useDispatch();
 
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<RootStackNavigationProp>();
 
   const onPressMemoDetail = () => {
-    // navigate(routes.memoDetail, { id: item.id });
+    navigate(routes.memoDetail, { id: item.id });
   };
 
   const handleDeleteMemo = (id: string) => {
@@ -47,7 +48,6 @@ const MemoItem = ({ item }: { item: MEMO_STATE }) => {
 const styles = StyleSheet.create({
   memoContainer: {
     flexDirection: "row",
-    marginHorizontal: DEFAULT_CONTENT_PADDING,
     paddingVertical: DEFAULT_CONTENT_PADDING,
     borderBottomWidth: 1,
     borderBottomColor: "#e0e0e0",

@@ -1,1 +1,2 @@
+export const DEFAULT_CONTAINER_PADDING = 32;
 export const DEFAULT_CONTENT_PADDING = 16;
