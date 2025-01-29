@@ -4,7 +4,7 @@ import { registerRootComponent } from "expo";
 import { App } from "./src/App";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
-import store, { persistor } from "./src/stores/store";
+import store, { persistor } from "@/stores/store";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
