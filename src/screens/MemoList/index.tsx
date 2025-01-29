@@ -6,7 +6,7 @@ import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
 import MemoItem from "./components/MemoItem";
 import palette from "@/palette";
-import { DEFAULT_CONTENT_PADDING } from "@/constant";
+import { DEFAULT_CONTAINER_PADDING, DEFAULT_CONTENT_PADDING } from "@/constant";
 
 const MemoListScreen = () => {
   const [isAdding, setIsAdding] = useState(false);
@@ -72,11 +72,10 @@ const MemoListScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: DEFAULT_CONTENT_PADDING,
-    backgroundColor: "#f9f9f9",
+    paddingHorizontal: DEFAULT_CONTAINER_PADDING,
+    paddingVertical: DEFAULT_CONTENT_PADDING,
   },
   emptyBlock: {
-    padding: DEFAULT_CONTENT_PADDING,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     bottom: 30,
     left: 0,
     right: 0,
-    marginHorizontal: DEFAULT_CONTENT_PADDING * 2,
+    marginHorizontal: DEFAULT_CONTAINER_PADDING,
     paddingVertical: DEFAULT_CONTENT_PADDING,
     backgroundColor: palette.black,
     alignItems: "center",
