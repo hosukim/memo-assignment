@@ -1,7 +1,7 @@
 const routes = {
   memoList: "MemoList",
-  // memoDetail: "MemoDetail",
+  memoDetail: "MemoDetail",
   // memoEdit: "MemoEdit",
-};
+} as const;
 
 export default routes;

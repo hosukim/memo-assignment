@@ -1,31 +1,40 @@
-import { HeaderButton, Text } from "@react-navigation/elements";
+import { createStaticNavigation } from "@react-navigation/native";
 import {
-  createStaticNavigation,
-  StaticParamList,
-} from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Profile } from "./screens/Profile";
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from "@react-navigation/native-stack";
 import MemoListScreen from "@/screens/MemoList";
 import palette from "@/palette";
 import routes from "./routes";
+import MemoDetailScreen from "@/screens/MemoDetail";
+
+export type RootStackParamList = {
+  [routes.memoList]: undefined;
+  [routes.memoDetail]: { id: string };
+};
+
+export type RootStackNavigationProp =
+  NativeStackNavigationProp<RootStackParamList>;
 
 const RootStack = createNativeStackNavigator({
   screens: {
     [routes.memoList]: {
       screen: MemoListScreen,
     },
+    [routes.memoDetail]: {
+      screen: MemoDetailScreen,
+    },
   },
   screenOptions: {
     headerTitleAlign: "center",
     headerShown: true,
     headerStyle: { backgroundColor: palette.header.background },
-    headerTitleStyle: { color: palette.header.text },
+    headerTintColor: palette.header.text,
+    animation: "slide_from_right",
   },
 });
 
 export const Navigation = createStaticNavigation(RootStack);
-
-type RootStackParamList = StaticParamList<typeof RootStack>;
 
 declare global {
   namespace ReactNavigation {
